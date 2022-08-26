@@ -18,6 +18,10 @@ try {
     die("could not decode json data: " . $e->getMessage());
 }
 
+if (empty($data)) {
+    die("received no objects to process");
+}
+
 foreach ($data as $k => $d) {
     if ($d['promotionPrice'] > 0) {
         $sortProms[] = $d;
